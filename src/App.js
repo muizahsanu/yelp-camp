@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Link, Routes, Route } from 'react-router-dom';
+
+// Styles
+import './App.scss';
+
+// Pages
+import Campground from './pages/Campground/Campground';
+import CreateCamp from './pages/CreateCamp/CreateCamp';
+import Home from './pages/Home/LandingPage';
+import Login from './pages/Login/Login';
+import Signup from './pages/Signup/Signup';
+import ViewCamp from './pages/ViewCamp/ViewCamp';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <BrowserRouter>
+        <Link to="/">home</Link>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/campground" element={<Campground />} />
+          <Route path="/campground/:id" element={<ViewCamp />} />
+          <Route path="/create" element={<CreateCamp />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

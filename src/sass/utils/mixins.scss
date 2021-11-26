@@ -1,0 +1,41 @@
+@use './functions.scss';
+
+%button-base{
+  padding: rem(8);
+  font-size: rem(16);
+  font-weight: 700;
+  border-radius: rem(4);
+  border: none;
+}
+
+%button-text{
+  opacity: .85;
+  &:hover{
+    opacity: 1;
+  }
+}
+
+@mixin button-fill($background: $c-black, $color: $c-white) {
+  @extend %button-base;
+  
+  background-color: $background;
+  color: $color;
+  &:hover{ filter: brightness(1.2); }
+}
+
+@mixin button-outline {
+  @extend %button-base;
+
+  border: 1px solid rgba($color: $c-gray, $alpha: .5);
+  &:hover{
+    background-color: $c-black;
+    color: $c-white;
+  }
+}
+
+@mixin button-icon() {
+  @extend %button-base;
+  display: flex;
+  align-items: center;
+  gap: rem(4);
+}
