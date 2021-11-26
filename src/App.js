@@ -1,7 +1,8 @@
-import { BrowserRouter, Link, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Styles
 import './App.scss';
+import Navbar from './components/Navbar';
 
 // Pages
 import Campground from './pages/Campground/Campground';
@@ -12,11 +13,12 @@ import Signup from './pages/Signup/Signup';
 import ViewCamp from './pages/ViewCamp/ViewCamp';
 
 function App() {
+
   return (
     <div className="App">
 
       <BrowserRouter>
-        <Link to="/">home</Link>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/campground" element={<Campground />} />

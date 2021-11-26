@@ -1,0 +1,11 @@
+@use './sass/utils/' as *;
+
+.App{
+
+  @include breakpoint(medium){
+    background-color: skyblue;
+  }
+  @include breakpoint(large){
+    background-color: khaki;
+  }
+}
